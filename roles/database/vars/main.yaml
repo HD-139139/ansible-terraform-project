@@ -1,0 +1,6 @@
+db:
+  socket: "/var/run/mysqld/mysqld.sock"
+  db: "wpdb"
+  user: "wpadm"
+  password: "P@ssw0rd"
+

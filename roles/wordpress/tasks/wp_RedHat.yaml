@@ -1,0 +1,46 @@
+- name: Download Wordpress Source
+  get_url:
+    url: "{{ wp['source_url'] }}"
+#   checksum: "{{ wp['source_hash'] }}"
+    dest: "{{ wp['source_file'] }}"
+  async: 300
+  poll: 0
+  register: download_result
+
+- name: Install Httpd Package
+  yum:
+    name: httpd, php, php-mysql, php-gd, php-mbstring
+    state: present
+
+- name: Starting Httpd Service
+  service:
+    name: https
+    state: started
+    enabled: yes
+ 
+- name: Check on an async Wordpress Source
+  async_status:
+    jid: "{{ downlaod_result.ansible_job_id }}"
+  register: job_result
+  until: job_result.finished
+  retries: 100
+  delay: 5
+ 
+- name: Unarchive Wordpress Source
+  unarchive:
+    src: "{{ wp['source_file'] }}"
+    remote_src: true
+    dest: /var/www/html
+ 
+- name: Copy & Setting Wordpress Database Configuration
+  template:
+    src: ../templates/wp-config.php.j2
+    dest: "{{ wp['config_file'] }}"
+ 
+- name: Change Httpd Service Ports
+  template:
+    src: ../templates/ports.conf.j2
+    dest: /etc/httpd/conf/https.conf
+  notify:
+    - Restart httpd
+

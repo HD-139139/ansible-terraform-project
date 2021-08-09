@@ -1,0 +1,34 @@
+- name: Install MariaDB Package
+  yum:
+    update_cache: true
+    name: mariadb-server, python3-pymysql
+    state: present
+- name: Starting Maria Service
+  service:
+    name: mariadb
+    state: started
+- name: Create Wordpress Database
+  mysql_db:
+    login_unix_socket: "{{ db['socket'] }}"
+    name: "{{ db['db'] }}"
+    state: present
+    enabled: yes
+  notify:
+    MariaDB Service Restart in RedHat
+- name: Create Wordpress User
+  mysql_user:
+    check_implicit_admin: yes
+    login_unix_socket: "{{ db['socket'] }}"
+    name: "{{ db['user'] }}"
+    password: "{{ db['password'] }}"
+    host: "{{ private_ip  }}"
+    priv: "{{ db['name'] }}.*:ALL,GRANT"
+    state: present
+
+#- name: Connection Setting
+#  lineinfile:
+#    path: /etc/mysql/mysql.conf.d/mysqld.cnf
+#    regexp: bind-address
+#    line: bind-address=0.0.0.0
+#  notify: MariaDB Service Restart in RedHat
+
