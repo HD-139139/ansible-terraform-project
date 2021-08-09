@@ -21,7 +21,7 @@
     login_unix_socket: "{{ db['socket'] }}"
     name: "{{ db['user'] }}"
     password: "{{ db['password'] }}"
-    host: "{{ private_ip  }}"
+    host: "{{ private_ip }}"
     priv: "{{ db['name'] }}.*:ALL,GRANT"
     state: present
 
