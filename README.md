@@ -5,44 +5,44 @@
 ```
 ```
 <h1>디렉토리 구조</h1>
-```
-.
-├── group_vars
-│   └── all.yaml
-├── inventory.ini
-├── main.tf
-├── my_sshkey
-├── my_sshkey.pub
-├── output.tf
-├── provider.tf
-├── roles
-│   ├── database
-│   │   ├── handlers
-│   │   │   └── main.yaml
-│   │   ├── tasks
-│   │   │   ├── db_Debian.yaml
-│   │   │   ├── db_RedHat.yaml
-│   │   │   └── main.yaml
-│   │   └── vars
-│   │       └── main.yaml
-│   ├── remove
-│   │   └── main.yaml
-│   └── wordpress
-│       ├── handlers
-│       │   └── main.yaml
-│       ├── tasks
-│       │   ├── main.yaml
-│       │   ├── wp_Debian.yaml
-│       │   └── wp_RedHat.yaml
-│       ├── templates
-│       │   ├── httpd.conf.j2
-│       │   ├── ports.conf.j2
-│       │   └── wp-config.php.j2
-│       └── vars
-│           └── main.yaml
-├── security_group.tf
-├── site.yaml
-├── terraform.tfstate
-├── terraform.tfstate.backup
-└── variable.tf
-```
+'''
+.  
+├── group_vars  
+│   └── all.yaml  
+├── inventory.ini  
+├── main.tf  
+├── my_sshkey  
+├── my_sshkey.pub  
+├── output.tf  
+├── provider.tf  
+├── roles  
+│   ├── database  
+│   │   ├── handlers  
+│   │   │   └── main.yaml  
+│   │   ├── tasks  
+│   │   │   ├── db_Debian.yaml  
+│   │   │   ├── db_RedHat.yaml  
+│   │   │   └── main.yaml  
+│   │   └── vars  
+│   │       └── main.yaml  
+│   ├── remove  
+│   │   └── main.yaml  
+│   └── wordpress  
+│       ├── handlers  
+│       │   └── main.yaml  
+│       ├── tasks  
+│       │   ├── main.yaml  
+│       │   ├── wp_Debian.yaml  
+│       │   └── wp_RedHat.yaml  
+│       ├── templates  
+│       │   ├── httpd.conf.j2  
+│       │   ├── ports.conf.j2  
+│       │   └── wp-config.php.j2  
+│       └── vars  
+│           └── main.yaml  
+├── security_group.tf  
+├── site.yaml  
+├── terraform.tfstate  
+├── terraform.tfstate.backup  
+└── variable.tf  
+'''
