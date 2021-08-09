@@ -1,0 +1,17 @@
+- name: Database Configure
+  hosts: db-server
+  roles:
+    - database
+
+- name: Wordpress Configure
+  hosts: wp-server
+  roles:
+    - wordpress
+
+#  post_tasks:
+#    - name: Checking Wordpress
+#      uri:
+#        url: "http://{{ groups['wp-server'][0] }}:{{ service_port }}/wordpress"
+#        status_code: 200
+#        return_content: yes
+
