@@ -5,7 +5,7 @@
 ```
 ```
 <h1>디렉토리 구조</h1>
-'''
+```
 .  
 ├── group_vars  
 │   └── all.yaml  
@@ -45,4 +45,4 @@
 ├── terraform.tfstate  
 ├── terraform.tfstate.backup  
 └── variable.tf  
-'''
+```
