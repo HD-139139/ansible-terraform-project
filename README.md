@@ -27,6 +27,7 @@ terraform -install-autocomplete    ###자동완성
 
 
 <h1>디렉토리 구조</h1>  
+
 ```
 .
 ├── group_vars
@@ -67,6 +68,6 @@ terraform -install-autocomplete    ###자동완성
 ├── terraform.tfstate
 ├── terraform.tfstate.backup
 └── variable.tf
-```
+```  
 
 
